@@ -1,18 +1,18 @@
 // johnny Louifils helped me on this
 'use strict';
-var dateFormat = require('dateformat');
+
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
-    title:
-    { DataTypes.STRING,
+    title: { 
+      type: DataTypes.STRING,
     validate: {
       notEmpty: {
         msg: "Title is required"
       }
     }
   },
-    author: 
-    { DataTypes.STRING,
+    author: {
+      type: DataTypes.STRING,
       validate: {
         notEmpty: {
           msg: "Title is required"
