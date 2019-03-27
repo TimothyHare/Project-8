@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     year: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       validate: {
         isNumeric: {
           msg: 'Year must be a number'
@@ -41,8 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
 
-    //createdAt: DataTypes.DATE,
-    //updatedAt: DataTypes.DATE
+    
   });
 
   Book.associate = function(models) {
