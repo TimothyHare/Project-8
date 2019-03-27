@@ -41,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
 
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
+    //createdAt: DataTypes.DATE,
+    //updatedAt: DataTypes.DATE
   });
 
   Book.associate = function(models) {
