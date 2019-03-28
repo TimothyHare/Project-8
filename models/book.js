@@ -1,4 +1,5 @@
 // johnny Louifils helped me on this
+// karen shea advised me differently and hers works better so I chose her advice
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
