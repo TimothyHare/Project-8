@@ -13,12 +13,12 @@ router.get('/', function(req, res, next) {
 
 
   /* Create a new book. */
-router.get('/new', function(req, res, next) {
-    res.render("New Book");
+router.get('/new', function(req, res, next) => {
+    res.render("new-book");
   });
 
 /* POST create book. */
-router.post('/new', function(req, res, next) {
+router.post('/new', function(req, res, next) => {
     Book.create(req.body).then(function(book){
     res.redirect('/books/');
     }).catch(function(error){
@@ -38,7 +38,7 @@ router.post('/new', function(req, res, next) {
   });
   
 /* Edit Book form. */
-router.get('/:id', function(req, res, next){
+router.get('/:id', function(req, res, next) => {
     Book.findByPk(req.params.id).then(function(book){
         if(book){
     res.render("update", {book: book});
@@ -51,7 +51,7 @@ router.get('/:id', function(req, res, next){
    });
 
    /* Post update book. */
-router.post('/:id', function(req, res, next){
+router.post('/:id', function(req, res, next) => {
     Book.findByPk(req.params.id).then(function(book){
         if(book) {
     return book.update(req.body);
@@ -77,7 +77,7 @@ router.post('/:id', function(req, res, next){
 });
 
   /* DELETE individual book. */
-router.post("/:id/delete", function(req, res, next){
+router.post("/:id/delete", function(req, res, next) => {
     Book.findByPk(req.params.id).then(function (book){
         if(book){
     return book.destroy();

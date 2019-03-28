@@ -1,10 +1,9 @@
-// this shall be new-book.pug
 extends layout.pug
 
 block content
     include validationError
     center
-        h1 Add a New Book to the Database
+        h1 Create a New Book Here
         form(action="/books/new", method="post")
             p
                 label(for='title') Title
