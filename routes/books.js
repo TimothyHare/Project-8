@@ -40,14 +40,14 @@ router.post('/new', function(req, res, next) {
 /* Edit Book form. */
 router.get('/:id', function(req, res, next) {
     Book.findByPk(req.params.id).then(function(book){
-        if(book){
-    res.render("update", {book: book});
-        }   else {
+        if(book) {
+    res.render('update-book', {book: book});
+        }  else {
           res.send(404)  
         }
 }).catch(function(error){
     res.send(500,error);
-});
+})
    });
 
    /* Post update book. */
