@@ -36,8 +36,8 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(error, req, res, next) {
-res.locals.error = error;
-res.render('page-not-found', {error});
+  res.locals.error = error;
+  res.render('page-not-found', {error});
 })
 
 module.exports = app;
