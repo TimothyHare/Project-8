@@ -1,7 +1,7 @@
 extends layout.pug
 
 block content
-    include validationError
+    include formValidation
     center
         h1 Create a New Book Here
         form(action="/books/new", method="post")

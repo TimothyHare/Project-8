@@ -14,10 +14,8 @@ router.get('/', function(req, res, next) {
 
   /* Create a new book. */
 router.get('/new', function(req, res, next) {
-    res.render("new-book").catch(function(error){
-    res.send(500,error);
-});
-  
+    res.render("new-book");
+  });
 
 /* POST create book. */
 router.post('/new', function(req, res, next) {
