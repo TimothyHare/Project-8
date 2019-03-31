@@ -34,10 +34,20 @@ app.use(function(req, res, next) {
   next(error);
 });
 
+/* if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error:err
+    })
+  })
+} */
+
 // error handler
 app.use(function(error, req, res, next) {
   res.locals.error = error;
-  res.render('page-not-found', {error});
+  res.render('error');
 })
 
 module.exports = app;

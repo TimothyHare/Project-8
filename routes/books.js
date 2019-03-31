@@ -1,4 +1,6 @@
 // Johnny Louifils helped me through this
+// Dalyn Small helped me with this
+//Karen Shea helped me with this
 var express = require('express');
 var router = express.Router();
 var Book = require("../models").Book;
@@ -25,7 +27,7 @@ router.post('/new', function(req, res, next) {
         if(error.name === "SequelizeValidationError") {
             var book = Book.build(req.body);
             book.id = req.params.id;
-            res.render("newBook", {
+            res.render("new-book", {
                 book: book,
                 errors: error.errors
             });
@@ -56,10 +58,10 @@ router.post('/:id', function(req, res, next) {
         if(book) {
     return book.update(req.body);
         }else {
-            res.render('page-not-found', 404)
+            res.status(404)
         }
     }).then(function (book){
-    res.redirect("/books/");
+    res.redirect("/books/" + book.id);  
     }) .catch(function(error){
         if(error.name === "SequelizeValidationError") {
             var book = Book.build(req.body);
