@@ -9,7 +9,7 @@ var Book = require("../models").Book;
 router.get('/', function(req, res, next) {
     Book.findAll({order:[["id", "ASC"]]}).then(function (books){res.render("index", {books:books});
     }).catch(function(error){
-        res.send(500,error);
+        res.render(500,error);
     });
   });
 
@@ -35,7 +35,7 @@ router.post('/new', function(req, res, next) {
             throw error;
         }
     }).catch(function(error){
-        res.send(500,error);
+        res.status(500);
     });
   });
   
@@ -45,10 +45,10 @@ router.get('/:id', function(req, res, next) {
         if(book) {
     res.render('update-book', {book: book});
         }  else {
-          res.send(404)  
+          res.status(404)  
         }
 }).catch(function(error){
-    res.send(500,error);
+    res.status(500);
 })
    });
 
@@ -74,7 +74,7 @@ router.post('/:id', function(req, res, next) {
             throw error;
         }
     }).catch(function(error){
-        res.send(500, error);
+        res.status(500);
     });
 });
 
@@ -83,12 +83,12 @@ router.post("/:id/delete", function(req, res, next) {
     Book.findByPk(req.params.id).then(function (book){
         if(book){
     return book.destroy();
-        } else {res.send(404)
+        } else {res.status(404)
         }
     }).then(function(books){
       res.redirect("/books");
     }).catch(function(error){
-        res.send(500,error);
+        res.status(500);
     })
   });
 
