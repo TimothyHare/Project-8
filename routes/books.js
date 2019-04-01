@@ -35,7 +35,7 @@ router.post('/new', function(req, res, next) {
             throw error;
         }
     }).catch(function(error){
-        res.status(500);
+        res.render(500);
     });
   });
   
@@ -45,7 +45,7 @@ router.get('/:id', function(req, res, next) {
         if(book) {
     res.render('update-book', {book: book});
         }  else {
-          res.status(404)  
+          res.render(404)  
         }
 }).catch(function(error){
     res.status(500);
