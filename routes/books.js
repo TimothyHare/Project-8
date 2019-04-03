@@ -45,7 +45,7 @@ router.get('/:id', function(req, res, next) {
         if(book) {
            return res.render('update-book', {book: book});
         } else {
-         return res.sendStatus(404).json({"error": "error buddy"})
+         return res.status(404).render("error")
          // res.render('error')  
         }
 }).catch(function(error){
