@@ -1,6 +1,7 @@
 // Johnny Louifils helped me through this
 // Dalyn Small helped me with this
 //Karen Shea helped me with this
+
 var express = require('express');
 var router = express.Router();
 var Book = require("../models").Book;
@@ -59,7 +60,7 @@ router.post('/:id', function(req, res, next) {
         if(book) {
     return book.update(req.body);
         }else {
-            res.status(404)
+           res.status(404)
         }
     }).then(function (book){
     res.redirect("/books/" + book.id);  
